@@ -1,0 +1,126 @@
+
+header {
+    width: 100%;
+    height: 100px;
+    background: rgb(255, 255, 255);
+    position: fixed;
+	z-index: 2;
+    }
+
+main {
+    width: 100%;
+    height: 450px;
+    background: #61a0ff;
+    padding-top: 5px;
+    position: absolute;
+    top: 100px;
+    z-index: 1;
+    }
+
+footer {
+    width: 100%;
+    height: 70px;
+    /*background: rgb(174, 203, 248);*/
+    position: absolute;
+    bottom:0px;
+    /*margin-bottom: 10px;*/
+    z-index: 0;
+    }
+
+#container0 {
+    width: 100%;
+    height: 80%;
+    margin-top: 45px;
+    padding-left: 5%;
+    padding-right: 12%;
+    /*background: rgb(255, 255, 255);*/
+    position: absolute;
+    z-index: 10;
+    }
+
+#container1 {
+    width: 90%;
+    height: 78.5%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    /*background: rgb(255, 255, 255);*/
+    position: relative;
+    z-index: 100;
+    }
+#box1 {
+    margin-left: 5px;
+    padding-top: 120px;
+    padding-left: 40px;
+    background: rgba(255, 193, 7, 0.5);
+    }
+
+#box2 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-image: url("sw1.jpg");
+    /*padding-left: 120px;*/
+    }
+
+#f-box {
+    width: 60%;
+    height: 100%;
+    background: rgb(0, 255, 149);
+    margin-left: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    z-index: 1000;
+    }
+
+#img1 {
+    width: 100%;
+    right: 0px;
+    margin-right: 0px;
+    }
+
+#fbox {
+        text-align: left;
+        font-size: 8px;
+        margin-top: 20px;
+        position: absolute;
+        right: 30px;
+    }
+
+#nav1 {
+        margin-top: 15px;
+    }
+#nav2 {
+        margin-right: 50px;
+    }
+
+
+    .wrapper{
+        display:flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        min-height: 100%;
+        padding: 20px;
+    }
+    
+    #formcontent {
+        -webkit-border-radius: 10px 10px 10px 10px;
+        border-radius: 10px 10px 10px 10px;
+        background: #fff;
+        padding: 30px;
+        width: 90%;
+        max-width: 450px;
+        position: relative;
+        padding: 0px;
+        -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+        box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+        text-align: center;
+    
+    }
+
+    /*----------------------------*/
