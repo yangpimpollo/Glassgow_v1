@@ -19,6 +19,7 @@ namespace Glassgow_v1
             {
                 Response.Redirect("index.aspx");
             }
+            TextBox5.Text= DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         protected void BtnCerrar_Click1(object sender, EventArgs e)
@@ -26,6 +27,25 @@ namespace Glassgow_v1
             lblBienvenida.Text = "log out";
             Session.Remove("current_section");
             Response.Redirect("index.aspx");
+        }
+
+        protected void btfecha_Click(object sender, EventArgs e)
+        {
+            lbfecha.Text = TextBox6.Text;
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        { 
+            lbfecha.Text = DropDownList1.Text;
+            if(tbProduct.Text!="" && TextBox1.Text != "" && TextBox3.Text != "")
+            {
+                
+            }
+            else
+            {
+                if(tbProduct.Text == "") { tbProduct.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffb5b5"); }
+
+            }
         }
     }
 }

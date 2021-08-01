@@ -35,6 +35,9 @@
         <main>
             <div>
                 <asp:Label ID="lblBienvenida" runat="server" Text="" CssClass="h3"></asp:Label>
+                <asp:TextBox ID="TextBox6" CssClass="form-control" runat="server" placeholder="date" TextMode="Date"></asp:TextBox>
+                <asp:Button ID="btfecha" runat="server" Text="Button" OnClick="btfecha_Click" />
+                <asp:Label ID="lbfecha" runat="server" Text="Label"></asp:Label>
             </div>
         </main>
         <footer>
@@ -53,13 +56,22 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <asp:TextBox ID="tbProduct" CssClass="form-control" runat="server" placeholder="product"></asp:TextBox>
+                        <asp:TextBox ID="tbProduct" CssClass="form-control bg-red-200" runat="server" placeholder="product"></asp:TextBox>
                         <div class="row mt-3">
                             <div class="col d-inline-block">
                                 <asp:TextBox ID="TextBox1" CssClass="form-control" runat="server" placeholder="provider"></asp:TextBox>
                             </div>
                             <div class="col d-inline-block">
-                                <asp:DropDownList ID="DropDownList1" class="form-select" runat="server"></asp:DropDownList>
+                                <asp:DropDownList ID="DropDownList1" CssClass="form-select" runat="server">
+                                    <asp:ListItem Value="1"> Instrumentos Quirurgicos </asp:ListItem>
+                                    <asp:ListItem Value="2"> Instrumento Dental </asp:ListItem>
+                                    <asp:ListItem Value="3"> Instrumento de Laboratorio </asp:ListItem>
+                                    <asp:ListItem Value="4"> Equipo Medico </asp:ListItem>
+                                    <asp:ListItem Value="5"> Descartable comun </asp:ListItem>
+                                    <asp:ListItem Value="6"> Aparato Pequeño </asp:ListItem>
+                                    <asp:ListItem Value="7"> Insumo Medico </asp:ListItem>
+                                    <asp:ListItem Selected="True" Value="0"> other </asp:ListItem>                              
+                                </asp:DropDownList>        
                             </div>
                         </div>
 
@@ -74,7 +86,7 @@
 
                         <div class="row mt-3">
                             <div class="col d-inline-block">
-                                <asp:TextBox ID="TextBox3" CssClass="form-control" runat="server" placeholder="price"></asp:TextBox>
+                                <asp:TextBox ID="TextBox3" CssClass="form-control" runat="server" placeholder="price" TextMode="Number"></asp:TextBox>
                             </div>
                             <div class="col d-inline-block">
                                 <asp:TextBox ID="TextBox5" CssClass="form-control" runat="server" placeholder="date" TextMode="Date"></asp:TextBox>
@@ -85,7 +97,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <asp:Button ID="btnSave" runat="server" Text="Save changes" CssClass="btn btn-primary" OnClick="btnSave_Click"/>
+
                     </div>
                 </div>
             </div>
