@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="./styles/global_styles.css" rel="stylesheet"/>
     <title>Glassgow</title>
 </head>
@@ -20,7 +21,7 @@
                   </a>
                   <div>
                     <div class="d-inline p-1" id="addbutton">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">añadir</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"  data-backdrop="static" data-keyboard="false">añadir</button>
                     </div>
                     <div class="d-inline p-1">
                         <asp:Button ID="BtnCerrar" runat="server" Text="log out" CssClass="btn btn-dark" OnClick="BtnCerrar_Click1"/>
@@ -33,11 +34,47 @@
         </header>
         
         <main>
-            <div>
-                <asp:Label ID="lblBienvenida" runat="server" Text="" CssClass="h3"></asp:Label>
-                <asp:TextBox ID="TextBox6" CssClass="form-control" runat="server" placeholder="date" TextMode="Date"></asp:TextBox>
+            <asp:Label ID="lblBienvenida" runat="server" Text="" CssClass="h3"></asp:Label>
+            <div >
+                
+                <%--<nav class="navbar navbar-light bg-light">--%>
+                    <div id="searchbox" class="row mt-3">
+                        <%--<form class="d-flex">--%>
+                        <div id="searchbox_1" class="col d-inline-block">
+                            <asp:TextBox id="TextBox6" runat="server" Cssclass="form-control" placeholder="Search"></asp:TextBox>
+                        </div>
+                        <div id="searchbox_2" class="col d-inline-block">
+                            <asp:Button id="Button1" runat="server" Cssclass="btn btn-success" type="submit" Text="Search" />
+                        </div>
+                            
+                            
+                            <%--<input class="form-control me-2 d-inline" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success d-inline" type="submit">Search</button>--%>
+                        <%--</form>--%>
+                    </div>
+                <%--</nav>--%>
+                <%--<asp:TextBox ID="TextBox6" CssClass="form-control" runat="server" placeholder="date" TextMode="Date"></asp:TextBox>
                 <asp:Button ID="btfecha" runat="server" Text="Button" OnClick="btfecha_Click" />
-                <asp:Label ID="lbfecha" runat="server" Text="Label"></asp:Label>
+                <asp:Label ID="lbfecha" runat="server" Text="Label"></asp:Label>--%>
+
+                <div ID="databox" class="overflow-auto">
+                    <asp:GridView ID="GridView1" runat="server" Cssclass="table table-primary" AutoGenerateColumns="false">
+                        <Columns>
+                            <asp:BoundField DataField="m_Product" HeaderText="Product" />
+                            <asp:BoundField DataField="m_Provider" HeaderText="Provider" />
+                            <asp:BoundField DataField="m_Category" HeaderText="Category" />
+                            <asp:BoundField DataField="m_Mark" HeaderText="Mark" />
+                            <asp:BoundField DataField="m_Format" HeaderText="Format" />
+                            <asp:BoundField DataField="m_Price" HeaderText="Price" />
+                            <asp:TemplateField HeaderText="Actions">
+                                <ItemTemplate>
+                                    <asp:Button runat="server" Text="Edit" Cssclass="btn btn-warning"/>
+                                    <asp:Button runat="server" Text="Del" Cssclass="btn btn-danger"/>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+                </div>
             </div>
         </main>
         <footer>
@@ -48,7 +85,7 @@
             </div>
         </footer>
         <!-- Modal -->
-        <div class="modal fade" runat="server" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" runat="server" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -86,7 +123,7 @@
 
                         <div class="row mt-3">
                             <div class="col d-inline-block">
-                                <asp:TextBox ID="TextBox3" CssClass="form-control" runat="server" placeholder="price" TextMode="Number"></asp:TextBox>
+                                <asp:TextBox ID="TextBox3" CssClass="form-control" runat="server" placeholder="price"></asp:TextBox>
                             </div>
                             <div class="col d-inline-block">
                                 <asp:TextBox ID="TextBox5" CssClass="form-control" runat="server" placeholder="date" TextMode="Date"></asp:TextBox>
@@ -97,7 +134,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <asp:Button ID="btnSave" runat="server" Text="Save changes" CssClass="btn btn-primary" OnClick="btnSave_Click"/>
+                        <asp:Button type="button" ID="btnSave" runat="server" Text="Save changes" CssClass="btn btn-primary" OnClick="btnSave_Click"/>
 
                     </div>
                 </div>

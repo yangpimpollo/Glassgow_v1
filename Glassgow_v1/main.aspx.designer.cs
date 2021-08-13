@@ -51,22 +51,22 @@ namespace Glassgow_v1
         protected global::System.Web.UI.WebControls.TextBox TextBox6;
 
         /// <summary>
-        /// btfecha control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btfecha;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// lbfecha control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbfecha;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
         /// exampleModal control.

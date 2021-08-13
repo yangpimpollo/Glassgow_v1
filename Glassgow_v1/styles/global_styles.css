@@ -1,4 +1,5 @@
 
+
 header {
     width: 100%;
     height: 100px;
@@ -16,6 +17,51 @@ main {
     top: 100px;
     z-index: 1;
     }
+main::-webkit-scrollbar {
+        display: none;
+    }
+
+#searchbox {
+    width: 70%;
+    margin-left: 15%;
+}
+
+#searchbox_1 {
+    width: 100%;
+    padding-right: 6px;
+}
+
+#searchbox_2 {
+    width: 20%;
+    padding-left: 0px;
+}
+
+#TextBox6 {
+    margin-top: 10px;
+}
+
+#Button1 {
+    margin-top: 10px;
+}
+
+
+#databox {
+    width: 80%;
+    height: 350px;
+    background: #61a0ff;
+    margin-left: 10%;
+    position: absolute;
+    bottom: 10px;
+    /*padding-top: 5px;
+    position: absolute;
+    //top: 100px;
+    z-index: 1;*/
+}
+
+#databox::-webkit-scrollbar {
+    display: none;
+}
+
 
 footer {
     width: 100%;
