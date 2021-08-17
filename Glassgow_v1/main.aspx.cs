@@ -22,7 +22,7 @@ namespace Glassgow_v1
             if (Session["current_section"] != null)
             {
                 user = Session["current_section"].ToString();
-                //lblBienvenida.Text = "welcome " + user;
+                lblBienvenida.Text = "welcome " + user;
             } else
             {
                 Response.Redirect("index.aspx");
@@ -46,7 +46,7 @@ namespace Glassgow_v1
             LeerDatos(command);
         }
 
-        protected void Button1_Click1(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
             command = "select*from Matrix where m_Product like '%" + TextBox6.Text + "%'";
             LeerDatos(command);
@@ -92,6 +92,7 @@ namespace Glassgow_v1
 
             }
         }
+
 
         void LeerDatos(string command)
         {

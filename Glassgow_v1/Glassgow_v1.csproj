@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="main.aspx" />
+    <Content Include="start.aspx" />
     <Content Include="Web.config" />
     <Content Include="index.aspx" />
   </ItemGroup>
@@ -86,6 +87,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="start.aspx.cs">
+      <DependentUpon>start.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="start.aspx.designer.cs">
+      <DependentUpon>start.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

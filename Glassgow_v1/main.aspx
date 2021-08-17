@@ -34,17 +34,17 @@
         </header>
         
         <main>
-            <asp:Label ID="lblBienvenida" runat="server" Text="" CssClass="h3"></asp:Label>
+            
             <div >
                 
                 <%--<nav class="navbar navbar-light bg-light">--%>
                     <div id="searchbox" class="row mt-3">
                         <%--<form class="d-flex">--%>
                         <div id="searchbox_1" class="col d-inline-block">
-                            <asp:TextBox id="TextBox6" runat="server" Cssclass="form-control" placeholder="Search"></asp:TextBox>
+                            <asp:TextBox id="TextBox6" runat="server" Cssclass="form-control" placeholder="Search" OnTextChanged="TextBox6_TextChanged"></asp:TextBox>
                         </div>
                         <div id="searchbox_2" class="col d-inline-block">
-                            <asp:Button id="Button1" runat="server" Cssclass="btn btn-success" type="submit" Text="Search" />
+                            <asp:Button id="Button1" runat="server" Cssclass="btn btn-success" type="submit" Text="Search" OnClick="Button1_Click" />
                         </div>
                             
                             
@@ -78,6 +78,7 @@
             </div>
         </main>
         <footer>
+            <asp:Label ID="lblBienvenida" runat="server" Text="" CssClass="h3"></asp:Label>
             <div id="fbox">
                 <h8>designed and built by @amber</h8><br>
                 <h8>Glassgow Medical Corporation 2021</h8><br>
