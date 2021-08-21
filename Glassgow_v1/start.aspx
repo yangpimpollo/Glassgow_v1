@@ -14,8 +14,7 @@
         <title>Glassgow</title>
     </head>
     <body>
-
-                <div id="wrapper">
+        <div id="wrapper">
             <main>
                 <div id="main_box">
                     <div id="main_sub-box">
@@ -39,7 +38,9 @@
                                     </div> 
                                     <hr />
                                     <div class="row mb-1">
-                                        <asp:Label runat="server" CssClass="alert-danger" ID="lblError"></asp:Label>
+                                        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                                        <asp:Timer ID="Timer1" runat="server" OnTick="Timer1_Tick" Interval="4000"></asp:Timer>
+                                        <asp:Label runat="server" CssClass="alert-danger" id="lblError"></asp:Label>
                                     </div> 
                                     <div class="d-grid">
                                         <asp:Button id="btnLogin" CssClass="btn btn-primary" runat="server" Text="log in" OnClick="btnLogin_Click"/>

@@ -14,7 +14,7 @@ namespace Glassgow_v1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         string patron = "Diana";
@@ -34,14 +34,40 @@ namespace Glassgow_v1
             if (dr.Read())
             {
                 Session["current_section"] = tbUsuario.Text;
-                Response.Redirect("main.aspx");
+                Response.Redirect("home.aspx");
             }
             else
             {
-                tbUsuario.Text = "";
-                lblError.Text = "Incorrect password";
+                if(tbUsuario.Text == "" && tbPassword.Text == "")
+                {
+                    lblError.Text = "Insert credentials";
+                    Timer1.Enabled = true;
+                }else if (tbUsuario.Text == "" && tbPassword.Text != "")
+                {
+                    lblError.Text = "Insert user";
+                    Timer1.Enabled = true;
+                }else if (tbUsuario.Text != "" && tbPassword.Text == "")
+                {
+                    lblError.Text = "Insert password";
+                    Timer1.Enabled = true;
+                }
+                else
+                {
+                    tbUsuario.Text = "";
+                    lblError.Text = "Incorrect credentials";
+                    Timer1.Enabled = true;
+                }
+                    
+                
+
             }
             cmd.Connection.Close();
+        }
+
+        protected void Timer1_Tick(object sender, EventArgs e)
+        {
+            lblError.Text= "";
+            Timer1.Enabled = false;
         }
     }
 }

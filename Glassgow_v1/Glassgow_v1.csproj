@@ -68,9 +68,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="main.aspx" />
+    <Content Include="res\first-aid-kit.ico" />
+    <Content Include="res\fondo.png" />
+    <Content Include="res\heart.png" />
+    <Content Include="res\heart_mod.png" />
+    <Content Include="res\logo.png" />
+    <Content Include="res\logo_blk.png" />
+    <Content Include="res\logo_g.png" />
+    <Content Include="res\logo_sinf.png" />
+    <Content Include="res\medic.png" />
+    <Content Include="res\sw1.jpg" />
+    <Content Include="res\sw1big.jpg" />
+    <Content Include="res\sw1p.png" />
+    <Content Include="res\sw2p.png" />
+    <Content Include="res\vaccine.jpg" />
     <Content Include="start.aspx" />
+    <Content Include="styles\global_styles.css" />
+    <Content Include="styles\home.css" />
+    <Content Include="styles\start.css" />
     <Content Include="Web.config" />
     <Content Include="index.aspx" />
+    <Content Include="home.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="main.aspx.cs">
@@ -95,6 +113,13 @@
     <Compile Include="start.aspx.designer.cs">
       <DependentUpon>start.aspx</DependentUpon>
     </Compile>
+    <Compile Include="home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -105,10 +130,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="res\" />
-    <Folder Include="styles\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -21,10 +21,13 @@
                   </a>
                   <div>
                     <div class="d-inline p-1" id="addbutton">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">test</button>
+                    </div>
+                    <div class="d-inline p-1" id="addbutton">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"  data-backdrop="static" data-keyboard="false">añadir</button>
                     </div>
                     <div class="d-inline p-1">
-                        <asp:Button ID="BtnCerrar" runat="server" Text="log out" CssClass="btn btn-dark" OnClick="BtnCerrar_Click1"/>
+                        <asp:Button ID="BtnCerrar" runat="server" Text="log out" CssClass="btn btn-dark" OnClick="BtnCerrar_Click"/>
                     </div>
                   </div>
                   
@@ -130,6 +133,7 @@
                                 <asp:TextBox ID="TextBox5" CssClass="form-control" runat="server" placeholder="date" TextMode="Date"></asp:TextBox>
                             </div>
                         </div>
+                        <asp:Button ID="Button2" runat="server" Text="Button" />
 
 
                     </div>
@@ -141,7 +145,76 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- test Modal -->
         
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+              <div class="modal-body">
+                        <asp:TextBox ID="TextBox7" CssClass="form-control bg-red-200" runat="server" placeholder="product"></asp:TextBox>
+                        <div class="row mt-3">
+                            <div class="col d-inline-block">
+                                <asp:TextBox ID="TextBox8" CssClass="form-control" runat="server" placeholder="provider"></asp:TextBox>
+                            </div>
+                            <div class="col d-inline-block">
+                                <asp:DropDownList ID="DropDownList2" CssClass="form-select" runat="server">
+                                    <asp:ListItem Value="1"> Instrumentos Quirurgicos </asp:ListItem>
+                                    <asp:ListItem Value="2"> Instrumento Dental </asp:ListItem>
+                                    <asp:ListItem Value="3"> Instrumento de Laboratorio </asp:ListItem>
+                                    <asp:ListItem Value="4"> Equipo Medico </asp:ListItem>
+                                    <asp:ListItem Value="5"> Descartable comun </asp:ListItem>
+                                    <asp:ListItem Value="6"> Aparato Pequeño </asp:ListItem>
+                                    <asp:ListItem Value="7"> Insumo Medico </asp:ListItem>
+                                    <asp:ListItem Selected="True" Value="0"> other </asp:ListItem>                              
+                                </asp:DropDownList>        
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col d-inline-block">
+                                <asp:TextBox ID="TextBox9" CssClass="form-control" runat="server" placeholder="mark"></asp:TextBox>
+                            </div>
+                            <div class="col d-inline-block">
+                                <asp:TextBox ID="TextBox10" CssClass="form-control" runat="server" placeholder="format"></asp:TextBox>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col d-inline-block">
+                                <asp:TextBox ID="TextBox11" CssClass="form-control" runat="server" placeholder="price"></asp:TextBox>
+                            </div>
+                            <div class="col d-inline-block">
+                                <asp:TextBox ID="TextBox12" CssClass="form-control" runat="server" placeholder="date" TextMode="Date"></asp:TextBox>
+                            </div>
+                        </div>
+                        
+              </div>
+            </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="Button3" EventName="Click" />
+            </Triggers>
+
+        </asp:UpdatePanel>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+                <asp:Button ID="Button3" runat="server" Text="save" OnClick="Button3_Click" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+
     </form>
 </body>
 </html>

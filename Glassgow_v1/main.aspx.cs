@@ -88,7 +88,7 @@ namespace Glassgow_v1
             }
             else
             {
-                /*if(tbProduct.Text == "") { tbProduct.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffb5b5"); }*/
+                if(tbProduct.Text == "") { tbProduct.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffb5b5"); }
 
             }
         }
@@ -102,6 +102,12 @@ namespace Glassgow_v1
             da.Fill(dt);
             GridView1.DataSource = dt;
             GridView1.DataBind();
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Button3.Text = "hello";
+            TextBox7.BackColor = System.Drawing.ColorTranslator.FromHtml("#ffb5b5");
         }
     }
 }
