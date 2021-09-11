@@ -33,12 +33,15 @@ namespace Glassgow_v1
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())
             {
+                Console.WriteLine("--------------------LOGIN---------------");
                 Session["current_section"] = tbUsuario.Text;
                 Response.Redirect("home.aspx");
             }
             else
             {
-                if(tbUsuario.Text == "" && tbPassword.Text == "")
+                Console.WriteLine("--------------------ERROR 808---------------");
+                Page.Response.Write("<script>console.log('hhhhhhh-------808');</script>");
+                if (tbUsuario.Text == "" && tbPassword.Text == "")
                 {
                     lblError.Text = "Insert credentials";
                     Timer1.Enabled = true;

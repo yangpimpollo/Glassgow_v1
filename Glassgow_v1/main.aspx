@@ -27,7 +27,7 @@
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"  data-backdrop="static" data-keyboard="false">añadir</button>
                     </div>
                     <div class="d-inline p-1">
-                        <asp:Button ID="BtnCerrar" runat="server" Text="log out" CssClass="btn btn-dark" OnClick="BtnCerrar_Click"/>
+                        <asp:Button ID="BtnCerrar" runat="server" Text="log out" CssClass="btn btn-dark"/>
                     </div>
                   </div>
                   

@@ -36,11 +36,13 @@ namespace Glassgow_v1
             {
                 Session["current_section"] = tbUsuario.Text;
                 Response.Redirect("main.aspx");
+                //Console.WriteLine("Successful start section");
             }
             else
             {
                 tbUsuario.Text = "";
                 lblError.Text = "Incorrect password";
+                Console.WriteLine("section start failed");
             }
             cmd.Connection.Close();
         }
