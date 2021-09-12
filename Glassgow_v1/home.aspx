@@ -42,10 +42,18 @@
                                 </div>
                             </div>
                             <div id="nav-13">
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
-                                    <button id="btn_add" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"  data-backdrop="static" data-keyboard="false"></button>
-                                    <asp:LinkButton id="btn_out" runat="server" CssClass="btn btn-danger" OnClick="btn_out_Click"></asp:LinkButton>
-                                  </div>
+                                <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                                    <ContentTemplate>
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
+                                            <asp:LinkButton id="btn_add" runat="server" CssClass="btn btn-primary" OnClick="btn_add_Click" causesvalidation="false"></asp:LinkButton>
+                                            <%--<button id="btn_add" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"  data-backdrop="static" data-keyboard="false"></button>--%>
+                                            <asp:LinkButton id="btn_out" runat="server" CssClass="btn btn-danger" OnClick="btn_out_Click"></asp:LinkButton>
+                                        </div>                                
+                                    </ContentTemplate>
+                                    <Triggers>
+                                        <asp:AsyncPostBackTrigger ControlID="btn_add"/>
+                                    </Triggers>
+                                </asp:UpdatePanel>
                             </div>
                         </div>
                     </nav>
@@ -86,7 +94,7 @@
                                         <asp:BoundField DataField="id" HeaderText="id" Visible="False" />
                                         <asp:TemplateField HeaderText="Actions">
                                             <ItemTemplate>
-                                                <asp:LinkButton runat="server" ID="link" CommandArgument='<%# Eval("id") %>' OnClick="link_Click" causesvalidation="false">edit</asp:LinkButton>
+                                                <asp:LinkButton runat="server" ID="link" Cssclass="btn btn-warning" CommandArgument='<%# Eval("id") %>' OnClick="link_Click" causesvalidation="false">edit</asp:LinkButton>
                                                 <%--<asp:Button runat="server" id="gridEdit_btn" Text="Edit" Cssclass="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#exampleModal"  data-backdrop="static" data-keyboard="false" CommandName="Select" CommandArgument="<%# Container.DataItemIndex %>" />--%>
                                                 <asp:Button runat="server" Text="Del" Cssclass="btn btn-danger" CommandName="Delete"/>
                                             </ItemTemplate>
