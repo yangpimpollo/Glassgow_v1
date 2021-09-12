@@ -117,14 +117,18 @@
                 <div class="modal fade" runat="server" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
+                            
 
                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                 <ContentTemplate>
                                     <asp:Timer ID="Timer1" runat="server" OnTick="Timer1_Tick" Interval="3000"></asp:Timer>
+                                    <div class="modal-header">
+                                        <%--<asp:Label id="exampleModalLabel CssClass="modal-title" runat="server" Text="Modal title"></asp:Label>--%>
+                                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                        <asp:Label id="Modaltitle" CssClass="modal-title" runat="server"></asp:Label>
+                                        <asp:Label id="idLabel" runat="server" Visible="false"></asp:Label>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
                                     <div class="modal-body">
                                         <asp:TextBox ID="tbProduct" CssClass="form-control bg-red-200" runat="server" placeholder="product"></asp:TextBox>
                                         <div class="row mt-3">
@@ -172,6 +176,7 @@
                                 </ContentTemplate>
                                 <Triggers>
                                     <asp:AsyncPostBackTrigger ControlID="btnSave" EventName="Click" />
+                                    <asp:AsyncPostBackTrigger ControlID="btn_add" EventName="Click" />
                                     <%--<asp:AsyncPostBackTrigger ControlID="gridEdit_btn" EventName="Click" />--%>
                                     
                                 </Triggers>

@@ -18,6 +18,7 @@ namespace Glassgow_v1
         SqlDataAdapter da;
         DataTable dt;
         bool editMode = false;
+        int id;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -40,6 +41,7 @@ namespace Glassgow_v1
 
         protected void btn_add_Click(object sender, EventArgs e)
         {
+            Modaltitle.Text = "Modal Title";
             editMode = false;
             tbProduct.Text = string.Empty;
             tbProvider.Text = string.Empty;
@@ -80,55 +82,45 @@ namespace Glassgow_v1
             if (tbProduct.Text != "" && tbProvider.Text != "" && tbPrice.Text != "")
             {
                 SqlCommand cmd;
-                if (editMode)
+                if (Modaltitle.Text == "EditMode")
                 {
-                    SqlCommand cmd = new SqlCommand("update_data", sqlConectar){ CommandType = CommandType.StoredProcedure };
+                    cmd = new SqlCommand("update_data", sqlConectar){ CommandType = CommandType.StoredProcedure };
                     cmd.Connection.Open();
-                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = tbProduct.Text;
-                    cmd.Parameters.Add("@m_Product", SqlDbType.VarChar, 50).Value = tbProduct.Text;
-                    cmd.Parameters.Add("@m_Provider", SqlDbType.VarChar, 50).Value = tbProvider.Text;
-                    cmd.Parameters.Add("@m_Category", SqlDbType.TinyInt).Value = DropDownList1.Text;
-                    cmd.Parameters.Add("@m_Mark", SqlDbType.VarChar, 50).Value = tbMark.Text;
-                    cmd.Parameters.Add("@m_Format", SqlDbType.VarChar, 50).Value = tbFormat.Text;
-                    cmd.Parameters.Add("@m_Price", SqlDbType.Float).Value = tbPrice.Text;
-                    cmd.Parameters.Add("@m_User", SqlDbType.VarChar, 50).Value = Session["current_section"].ToString();
-                    cmd.Parameters.Add("@m_Date", SqlDbType.Date).Value = tbDate.Text;
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    dr.Close();
+                    cmd.Parameters.Add("@id", SqlDbType.Int).Value = Convert.ToInt32(idLabel.Text);
+                    lblError.Text = "data updated correctly";
                 }
                 else
                 {
-                    SqlCommand cmd = new SqlCommand("ingresar_datos", sqlConectar){
-                        CommandType = CommandType.StoredProcedure
-                    };
+                    cmd = new SqlCommand("ingresar_datos", sqlConectar){ CommandType = CommandType.StoredProcedure };
                     cmd.Connection.Open();
-                    cmd.Parameters.Add("@m_Product", SqlDbType.VarChar, 50).Value = tbProduct.Text;
-                    cmd.Parameters.Add("@m_Provider", SqlDbType.VarChar, 50).Value = tbProvider.Text;
-                    cmd.Parameters.Add("@m_Category", SqlDbType.TinyInt).Value = DropDownList1.Text;
-                    cmd.Parameters.Add("@m_Mark", SqlDbType.VarChar, 50).Value = tbMark.Text;
-                    cmd.Parameters.Add("@m_Format", SqlDbType.VarChar, 50).Value = tbFormat.Text;
-                    cmd.Parameters.Add("@m_Price", SqlDbType.Float).Value = tbPrice.Text;
-                    cmd.Parameters.Add("@m_User", SqlDbType.VarChar, 50).Value = Session["current_section"].ToString();
-                    cmd.Parameters.Add("@m_Date", SqlDbType.Date).Value = tbDate.Text;
-                    SqlDataReader dr = cmd.ExecuteReader();
-                    dr.Close();
-
-                    tbProduct.Text = string.Empty;
-                    tbProvider.Text = string.Empty;
-                    DropDownList1.Text = "0";
-                    tbMark.Text = string.Empty;
-                    tbFormat.Text = string.Empty;
-                    tbPrice.Text = string.Empty;
-                    tbDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
-
                     lblError.Text = "saved successfully";
-                    lblError.CssClass = "alert-success";
-                    Timer1.Enabled = true;
-
-                    command = "select *from Matrix";
-                    LeerDatos(command);
                 }
-                
+                cmd.Parameters.Add("@m_Product", SqlDbType.VarChar, 50).Value = tbProduct.Text;
+                cmd.Parameters.Add("@m_Provider", SqlDbType.VarChar, 50).Value = tbProvider.Text;
+                cmd.Parameters.Add("@m_Category", SqlDbType.TinyInt).Value = DropDownList1.Text;
+                cmd.Parameters.Add("@m_Mark", SqlDbType.VarChar, 50).Value = tbMark.Text;
+                cmd.Parameters.Add("@m_Format", SqlDbType.VarChar, 50).Value = tbFormat.Text;
+                cmd.Parameters.Add("@m_Price", SqlDbType.Float).Value = tbPrice.Text;
+                cmd.Parameters.Add("@m_User", SqlDbType.VarChar, 50).Value = Session["current_section"].ToString();
+                cmd.Parameters.Add("@m_Date", SqlDbType.Date).Value = tbDate.Text;
+                SqlDataReader dr = cmd.ExecuteReader();
+                dr.Close();
+
+                tbProduct.Text = string.Empty;
+                tbProvider.Text = string.Empty;
+                DropDownList1.Text = "0";
+                tbMark.Text = string.Empty;
+                tbFormat.Text = string.Empty;
+                tbPrice.Text = string.Empty;
+                tbDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+
+                //lblError.Text = "saved successfully";
+                lblError.CssClass = "alert-success";
+                Timer1.Enabled = true;
+
+                command = "select *from Matrix";
+                LeerDatos(command);
+
             }
             else
             {
@@ -158,10 +150,10 @@ namespace Glassgow_v1
 
         protected void link_Click(object sender, EventArgs e)
         {
-            editMode = true;
+            this.editMode = true;
             LinkButton linkbutton = (LinkButton)sender;  // get the link button which trigger the event
             GridViewRow row = (GridViewRow)linkbutton.NamingContainer; // get the GridViewRow that contains the linkbutton
-            int id = Convert.ToInt32(linkbutton.CommandArgument);
+            id = Convert.ToInt32(linkbutton.CommandArgument);
 
             command = "select *from Matrix WHERE id=" + id;
             SqlCommand cmd = new SqlCommand(command, sqlConectar);
@@ -171,12 +163,14 @@ namespace Glassgow_v1
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
+                Modaltitle.Text = "EditMode";
+                idLabel.Text = id.ToString();
                 tbProduct.Text = reader["m_Product"].ToString();
                 tbProvider.Text = reader["m_Provider"].ToString();
                 DropDownList1.Text = reader["m_Category"].ToString();
                 tbMark.Text = reader["m_Mark"].ToString();
                 tbPrice.Text = reader["m_Price"].ToString();
-                tbDate.Text = reader["m_Date"].ToString();
+                tbDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
             }
             //try
             //{

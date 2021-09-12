@@ -132,6 +132,24 @@ namespace Glassgow_v1
         protected global::System.Web.UI.Timer Timer1;
 
         /// <summary>
+        /// Modaltitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Modaltitle;
+
+        /// <summary>
+        /// idLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label idLabel;
+
+        /// <summary>
         /// tbProduct control.
         /// </summary>
         /// <remarks>
